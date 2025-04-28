@@ -23,6 +23,8 @@ public class CsvFileService {
                     transaction.getVendor() + "|" +
                     transaction.getAmount();
 
+            writer.write(line + System.lineSeparator());
+            writer.close();
 
         } catch (IOException e) {
             System.out.println("Error saving transaction: " + e.getMessage());
