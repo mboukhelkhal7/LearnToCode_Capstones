@@ -3,10 +3,13 @@ package org.example;
 import java.io.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CsvFileService {
 
@@ -82,6 +85,42 @@ public class CsvFileService {
         }
     }
 
+    public static List<Transaction> getMonthToDateTransactions() {
+        LocalDate today = LocalDate.now();
+        LocalDate firstDayOfMonth = today.withDayOfMonth(1);
+
+        List<Transaction> transactions = CsvFileService.readTransaction();
+        List<Transaction> results = new ArrayList<>();
+
+        for (Transaction transaction : transactions) {
+            LocalDate transactionDate = transaction.getDateTime().toLocalDate();
+            if (transactionDate.isAfter(firstDayOfMonth)) {
+                results.add(transaction);
+            }
+        }
+
+        return results;
+    }
+
+    public static List<Transaction> getPreviousMonth() {
+        LocalDate today = LocalDate.now();
+        YearMonth previousMonth = YearMonth.from(today.minusMonths(1));
+        LocalDate firstDay = previousMonth.atDay(1);
+        LocalDate lastDay = previousMonth.atEndOfMonth();
+
+        List<Transaction> transactions = CsvFileService.readTransaction();
+        List<Transaction> results = new ArrayList<>();
+
+        for (Transaction transaction : transactions) {
+            LocalDate transactionDate = transaction.getDateTime().toLocalDate();
+            if (transactionDate.isBefore(lastDay) && transactionDate.isAfter(firstDay)) {
+                results.add(transaction);
+            }
+        }
+        return results;
+    }
+
+
     public static String format(LocalDateTime dateTime) {
         return dateTime.format(FORMATTER);
     }
@@ -89,6 +128,8 @@ public class CsvFileService {
     public static LocalDateTime parse(String dateTimeString) {
         return LocalDateTime.parse(dateTimeString, FORMATTER);
     }
+
+
 }
 
 

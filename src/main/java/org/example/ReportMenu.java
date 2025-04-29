@@ -18,16 +18,20 @@ public class ReportMenu {
             System.out.println("5) Search by Vendor");
             System.out.println("0) Back");
             System.out.print("Choose an option: ");
-            String choice = scanner.nextLine().trim();
+
 
             String reportChoice = scanner.nextLine().trim().toUpperCase();
-            List<Transaction> transactions = CsvFileService.readTransaction();
+
 
             switch (reportChoice){
                 case "1":
-                    for (Transaction transaction : transactions){
-                        
-                    }
+                    List<Transaction> monthToDateTransactions = CsvFileService.getMonthToDateTransactions();
+                    System.out.println(monthToDateTransactions);
+                    break;
+                case "2":
+                    List<Transaction> previousMonthTransaction = CsvFileService.getPreviousMonth();
+                    System.out.println(previousMonthTransaction);
+                    break;
 
             }
 

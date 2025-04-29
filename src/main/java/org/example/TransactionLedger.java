@@ -45,6 +45,9 @@ public class TransactionLedger {
                             System.out.println(transaction);
                     }
                     break;
+                case "R" :
+                    ReportMenu.showReportMenu();
+                    break;
 
                 case "H":
                     return;

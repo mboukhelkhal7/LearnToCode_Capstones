@@ -12,6 +12,8 @@ public class Main {
 
         TransactionLedger.showLedgerMenu();
 
+        ReportMenu.showReportMenu();
+
 
     }
 }
