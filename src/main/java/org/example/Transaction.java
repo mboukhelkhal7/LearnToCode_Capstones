@@ -16,6 +16,9 @@ public class Transaction {
         this.amount = amount;
     }
 
+    public Transaction() {
+    }
+
     public LocalDateTime getDateTime() {
         return dateTime;
     }
