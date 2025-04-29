@@ -55,17 +55,7 @@ public class CsvFileService {
             throw new RuntimeException(e);
         }
 
-
         return transactions;
-    }
-
-    private String formatTransaction(Transaction transaction) {
-        return String.format("%s|%s|%s|%.2f",
-                format(transaction.getDateTime()),
-                transaction.getDescription().replace("|", ""),
-                transaction.getVendor().replace("|", ""),
-                transaction.getAmount()
-        );
     }
 
     private static Transaction parseTransaction(String line) {
