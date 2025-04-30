@@ -26,12 +26,25 @@ public class ReportMenu {
             switch (reportChoice){
                 case "1":
                     List<Transaction> monthToDateTransactions = CsvFileService.getMonthToDateTransactions();
-                    System.out.println(monthToDateTransactions);
+                    for (Transaction transaction : monthToDateTransactions)
+                        System.out.println(transaction);
                     break;
                 case "2":
                     List<Transaction> previousMonthTransaction = CsvFileService.getPreviousMonth();
-                    System.out.println(previousMonthTransaction);
+                    for (Transaction transaction : previousMonthTransaction)
+                        System.out.println(transaction);
                     break;
+                case "3":
+                    List<Transaction> yearToDateTransactions = CsvFileService.getYearToDateTransaction();
+                    for (Transaction transaction : yearToDateTransactions)
+                        System.out.println(transaction );
+                    break;
+                case "4":
+                    List<Transaction> previousYear = CsvFileService.getPreviousYearTransaction();
+                    for (Transaction transaction : previousYear)
+                        System.out.println(transaction);
+                    break;
+
 
             }
 

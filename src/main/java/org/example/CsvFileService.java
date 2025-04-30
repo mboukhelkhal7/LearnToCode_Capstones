@@ -120,6 +120,41 @@ public class CsvFileService {
         return results;
     }
 
+    public static List<Transaction> getYearToDateTransaction() {
+        LocalDate today = LocalDate.now();
+        LocalDate firsDayOfYear = today.withDayOfYear(1);
+
+        List<Transaction> transactions = CsvFileService.readTransaction();
+        List<Transaction> results = new ArrayList<>();
+
+        for (Transaction transaction : transactions) {
+            LocalDate transactionDate = transaction.getDateTime().toLocalDate();
+            if (transactionDate.isAfter(firsDayOfYear) || transactionDate.isEqual(firsDayOfYear)){
+                results.add(transaction);
+            }
+        }
+        return results;
+    }
+
+    public static List<Transaction> getPreviousYearTransaction(){
+        LocalDate today = LocalDate.now();
+        int previousYear = today.getYear() -1;
+
+        List<Transaction> transactions = CsvFileService.readTransaction();
+        List<Transaction> result = new ArrayList<>();
+
+        for (Transaction transaction : transactions) {
+            LocalDate transactionDate = transaction.getDateTime().toLocalDate();
+            if (transactionDate.getYear() == previousYear) {
+                result.add(transaction);
+            }
+        }
+        return result;
+
+    }
+
+
+
 
     public static String format(LocalDateTime dateTime) {
         return dateTime.format(FORMATTER);
