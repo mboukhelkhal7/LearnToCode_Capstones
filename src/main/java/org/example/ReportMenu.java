@@ -44,7 +44,15 @@ public class ReportMenu {
                     for (Transaction transaction : previousYear)
                         System.out.println(transaction);
                     break;
-
+                case "5":
+                    List<Transaction> vendorTransaction = CsvFileService.getTransactionByVendor("vendor");
+                    for (Transaction transaction : vendorTransaction)
+                        System.out.println(transaction);
+                    break;
+                case "0":
+                    System.out.println("Returning to Ledger Menu...");
+                    //TransactionLedger.showLedgerMenu();
+                    return;
 
             }
 

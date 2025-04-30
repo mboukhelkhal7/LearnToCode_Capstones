@@ -153,6 +153,18 @@ public class CsvFileService {
 
     }
 
+   public static List<Transaction> getTransactionByVendor( String vendor) {
+        List<Transaction> transactions = CsvFileService.readTransaction();
+        List<Transaction> result = new ArrayList<>();
+
+        for (Transaction transaction : transactions) {
+            if (transaction.getVendor().equalsIgnoreCase(vendor)) {
+                result.add(transaction);
+            }
+        }
+        return result;
+   }
+
 
 
 
