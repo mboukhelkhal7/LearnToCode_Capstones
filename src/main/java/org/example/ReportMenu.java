@@ -16,8 +16,10 @@ public class ReportMenu {
             System.out.println("3) Year To Date");
             System.out.println("4) Previous Year");
             System.out.println("5) Search by Vendor");
+            System.out.println("6) Custom Search");
             System.out.println("0) Back");
             System.out.print("Choose an option: ");
+
 
 
             String reportChoice = scanner.nextLine().trim().toUpperCase();
@@ -45,14 +47,26 @@ public class ReportMenu {
                         System.out.println(transaction);
                     break;
                 case "5":
-                    List<Transaction> vendorTransaction = CsvFileService.getTransactionByVendor("vendor");
-                    for (Transaction transaction : vendorTransaction)
-                        System.out.println(transaction);
+                    System.out.print("Enter vendor name to search: ");
+                    String vendorName = scanner.nextLine();
+                    List<Transaction> vendorTransaction = CsvFileService.getTransactionByVendor(vendorName);
+                    if (vendorTransaction.isEmpty()) {
+                        System.out.println("No transactions found for vendor: " + vendorName);
+                    } else {
+                        for (Transaction transaction : vendorTransaction) {
+                            System.out.println(transaction);
+                        }
+                    }
                     break;
                 case "0":
                     System.out.println("Returning to Ledger Menu...");
                     //TransactionLedger.showLedgerMenu();
                     return;
+
+                case "6":
+                    CustomSearch.runCustomSearch();
+                    break;
+
 
             }
 

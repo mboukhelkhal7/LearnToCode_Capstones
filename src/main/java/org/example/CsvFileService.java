@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 
 public class CsvFileService {
 
-
     private static final String FILENAME = "transactions.csv";
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd|HH:mm:ss");
 
@@ -165,9 +164,6 @@ public class CsvFileService {
         return result;
    }
 
-
-
-
     public static String format(LocalDateTime dateTime) {
         return dateTime.format(FORMATTER);
     }
@@ -175,8 +171,6 @@ public class CsvFileService {
     public static LocalDateTime parse(String dateTimeString) {
         return LocalDateTime.parse(dateTimeString, FORMATTER);
     }
-
-
 }
 
 

@@ -50,6 +50,8 @@ public class TransactionLedger {
                     break;
 
                 case "H":
+                    System.out.println("Returning to Home Menu...");
+                    MainMenu.showMenu();
                     return;
             }
         }
