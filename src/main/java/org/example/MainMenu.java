@@ -28,8 +28,6 @@ public class MainMenu {
             switch (choice) {
                 case "D":
                     System.out.println("You chose to Add a Deposit.");
-                    // Later: call method to add a deposit
-
                     System.out.println("Enter the description");
                     String description = scanner.nextLine();
 
@@ -39,16 +37,14 @@ public class MainMenu {
                     System.out.print("Enter the amount: ");
                     double amount = Double.parseDouble(scanner.nextLine());
 
-                    // Create a  Transaction
+
                     Transaction transaction = new Transaction(description, vendor, amount);
 
                     CsvFileService.saveTransaction(transaction);
 
-
                     break;
                 case "P":
                     System.out.println("You chose to Make a Payment (Debit).");
-                    // Later: call method to make a payment
 
 
                     System.out.println("Enter the description");
@@ -56,7 +52,6 @@ public class MainMenu {
 
                     System.out.println("Enter the vendor");
                     String payVendor = scanner.nextLine();
-
 
                     System.out.println("Enter the amount");
                     double payAmount = Double.parseDouble(scanner.nextLine());
@@ -73,7 +68,7 @@ public class MainMenu {
                     break;
                 case "L":
                     System.out.println("You chose to View Ledger.");
-                    // Later: call method to view ledger
+
                     TransactionLedger.showLedgerMenu();
 
                     break;
@@ -84,9 +79,7 @@ public class MainMenu {
                 default:
                     System.out.println("Invalid choice. Please try again.");
 
-
             }
-
 
         }
     }

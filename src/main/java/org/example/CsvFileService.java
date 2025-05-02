@@ -36,7 +36,6 @@ public class CsvFileService {
             System.out.println("Error saving transaction: " + e.getMessage());
         }
     }
-
     public static List<Transaction> readTransaction (){
 
         List<Transaction> transactions = new ArrayList<>();
@@ -59,7 +58,6 @@ public class CsvFileService {
 
         return transactions;
     }
-
     private static Transaction parseTransaction(String line) {
         try {
             String[] parts = line.split("\\|");
@@ -83,7 +81,6 @@ public class CsvFileService {
             return null;
         }
     }
-
     public static List<Transaction> getMonthToDateTransactions() {
         LocalDate today = LocalDate.now();
         LocalDate firstDayOfMonth = today.withDayOfMonth(1);
@@ -100,7 +97,6 @@ public class CsvFileService {
 
         return results;
     }
-
     public static List<Transaction> getPreviousMonth() {
         LocalDate today = LocalDate.now();
         YearMonth previousMonth = YearMonth.from(today.minusMonths(1));
@@ -118,7 +114,6 @@ public class CsvFileService {
         }
         return results;
     }
-
     public static List<Transaction> getYearToDateTransaction() {
         LocalDate today = LocalDate.now();
         LocalDate firsDayOfYear = today.withDayOfYear(1);
@@ -134,7 +129,6 @@ public class CsvFileService {
         }
         return results;
     }
-
     public static List<Transaction> getPreviousYearTransaction(){
         LocalDate today = LocalDate.now();
         int previousYear = today.getYear() -1;
@@ -151,7 +145,6 @@ public class CsvFileService {
         return result;
 
     }
-
    public static List<Transaction> getTransactionByVendor( String vendor) {
         List<Transaction> transactions = CsvFileService.readTransaction();
         List<Transaction> result = new ArrayList<>();
@@ -163,11 +156,6 @@ public class CsvFileService {
         }
         return result;
    }
-
-    public static String format(LocalDateTime dateTime) {
-        return dateTime.format(FORMATTER);
-    }
-
     public static LocalDateTime parse(String dateTimeString) {
         return LocalDateTime.parse(dateTimeString, FORMATTER);
     }

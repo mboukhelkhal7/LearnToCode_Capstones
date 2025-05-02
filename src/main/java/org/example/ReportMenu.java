@@ -20,10 +20,7 @@ public class ReportMenu {
             System.out.println("0) Back");
             System.out.print("Choose an option: ");
 
-
-
             String reportChoice = scanner.nextLine().trim().toUpperCase();
-
 
             switch (reportChoice){
                 case "1":
@@ -67,9 +64,7 @@ public class ReportMenu {
                     CustomSearch.runCustomSearch();
                     break;
 
-
             }
-
 
         }
     }

@@ -9,8 +9,6 @@ import java.util.Scanner;
 import static org.example.CsvFileService.readTransaction;
 
 public class CustomSearch {
-
-
     public static void runCustomSearch() {
         Scanner scanner = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -48,7 +46,6 @@ public class CustomSearch {
 
             if (match) results.add(t);
         }
-
         if (results.isEmpty()) {
             System.out.println("No matching transactions found.");
         } else {

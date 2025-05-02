@@ -53,13 +53,11 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction{" +
-                "dateTime=" + dateTime +
-                ", description='" + description + '\'' +
-                ", vendor='" + vendor + '\'' +
-                ", amount=" + amount +
-                '}';
+        return String.format("%-20s %-30s %-25s %-10s",
+                getDateTime(),
+                getDescription(),
+                getVendor(),
+                getAmount());
     }
-
 
 }

@@ -2,9 +2,7 @@ package org.example;
 
 import java.util.List;
 import java.util.Scanner;
-
 public class TransactionLedger {
-
 
     public static void showLedgerMenu(){
 
@@ -27,11 +25,8 @@ public class TransactionLedger {
             switch (ledgerChoice) {
                 case "A":
                     System.out.println("All Transaction:");
-
-
-                    for (Transaction transaction : transactions) {
-                        System.out.println(transaction);
-                    }
+                    for (Transaction t : transactions)
+                        System.out.println(t);
                     break;
                 case "D":
                     for (Transaction transaction : transactions) {
