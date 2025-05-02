@@ -65,15 +65,6 @@ This approach demonstrates conditional filtering based on user input without ove
 
 ---
 
-## 📸 Screenshots
-
-### ✅ Main Menu
-![Main Menu](screenshots/main_menu.png)
-
-### 🔎 Custom Search Screen
-![Custom Search](screenshots/custom_search.png)
-
----
 
 ## 🧑‍💻 How to Run
 
